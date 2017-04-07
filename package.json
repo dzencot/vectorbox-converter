@@ -42,5 +42,13 @@
     "flow": "^0.2.3",
     "flow-typed": "^2.0.0",
     "jest": "^19.0.2"
+  },
+  "dependencies": {
+    "debug": "^2.6.4",
+    "immutable": "^3.8.1",
+    "mz": "^2.6.0",
+    "xlsx": "^0.9.9",
+    "xml2js": "^0.4.17",
+    "xmlbuilder": "^8.2.2"
   }
 }

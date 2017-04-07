@@ -7,6 +7,9 @@ lint:
 test:
 	npm test
 
+test-debug:
+	DEBUG="converter:*" npm test
+
 test-watch:
 	npm run test-watch
 
