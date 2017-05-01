@@ -49,8 +49,8 @@ describe('test converter', () => {
 
   beforeAll(async () => {
     tempDir = fs.mkdtempSync(`${os.tmpdir()}${path.sep}`);
-    pathResult = path.resolve(tempDir, 'output.plx');
-    expectResult = await getListDuration('./__tests__/__fixtures__/testVB.plx');
+    pathResult = path.resolve(tempDir, 'output.xml');
+    expectResult = await getListDuration('./__tests__/__fixtures__/testVB.xml');
   });
 
   it('test plx', (done) => {
