@@ -11,12 +11,14 @@ export default async (sheet, {
   NameColumn = 'B',
   DurationColumn = 'C',
   ColorRegRec = '00FF00',
+  Offset,
 }) => {
   const maxRow = sheet['!ref'].split(':')[1].replace(/[^-0-9]/gim, '');
   const timeColumn = TimeColumn;
   const nameColumn = NameColumn;
   const durationColumn = DurationColumn;
   const colorRegRec = ColorRegRec;
+  const offsetTime = Offset;
   debugGetLiveBlocks(
     'timeColumn = ', timeColumn,
     'nameColumn = ', nameColumn,
@@ -49,7 +51,7 @@ export default async (sheet, {
       row: numRow,
       rolik: {
         name: line.name.v,
-        time: line.time.w,
+        time: addTime(line.time.w, offsetTime),
         duration: line.duration.w,
       },
     };
@@ -78,7 +80,7 @@ export default async (sheet, {
         acc[numRow] = {
           block: {
             number: numBlock,
-            time: line.time.w,
+            time: addTime(line.time.w, offsetTime),
             duration,
             name: 'Региональный блок',
             oldLines: lines,
@@ -89,7 +91,7 @@ export default async (sheet, {
       acc[numRow] = {
         rolik: {
           name: line.name.v,
-          time: line.time.w,
+          time: addTime(line.time.w, offsetTime),
           duration: line.duration.w,
         },
       };

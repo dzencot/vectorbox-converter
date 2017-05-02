@@ -3,7 +3,8 @@
     "TimeColumn": "A",
     "NameColumn": "B",
     "DurationColumn": "C",
-    "ColorRegRec": "00FF00"
+    "ColorRegRec": "00FF00",
+    "Offset": "00:00:00:00"
   },
   "RegionalBlocks": {
     "NameSheet": "Лист1",

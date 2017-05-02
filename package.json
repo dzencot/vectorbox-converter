@@ -44,6 +44,7 @@
     "jest": "^19.0.2"
   },
   "dependencies": {
+    "commander": "^2.9.0",
     "debug": "^2.6.4",
     "immutable": "^3.8.1",
     "mz": "^2.6.0",
