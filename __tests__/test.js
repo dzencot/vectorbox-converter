@@ -29,14 +29,14 @@ describe('test MathTime', () => {
   });
 });
 
-const getListDuration = async (pathFile) => {
+const getXmlData = async (pathFile) => {
   let result;
   const fileResult = fs.readFileSync(pathFile, 'ucs2');
-  await xml.parseString(fileResult, (err, data) => {
+  xml.parseString(fileResult, (err, data) => {
     if (err) {
       throw err;
     }
-    result = data.PlayList.ListDuration[0];
+    result = data;
     return true;
   });
   return result;
@@ -45,21 +45,22 @@ const getListDuration = async (pathFile) => {
 describe('test converter', () => {
   let tempDir;
   let pathResult;
-  let expectResult;
+  let expectData;
 
   beforeAll(async () => {
     tempDir = fs.mkdtempSync(`${os.tmpdir()}${path.sep}`);
     pathResult = path.resolve(tempDir, 'output.xml');
-    expectResult = await getListDuration('./__tests__/__fixtures__/testVB.xml');
+    expectData = await getXmlData('./__tests__/__fixtures__/testVB.xml');
   });
 
   it('test plx', (done) => {
     const filePathRecBlock = './__tests__/__fixtures__/testRegionalList.xlsx';
     const filePathLive = './__tests__/__fixtures__/testPlaylist.xlsx';
-    converter(filePathLive, filePathRecBlock, pathResult)
+    const fileConfig = './__tests__/__fixtures__/config.json';
+    converter(filePathLive, filePathRecBlock, pathResult, fileConfig)
     .then(async () => {
-      const result = await getListDuration(pathResult);
-      expect(result).toEqual(expectResult);
+      const xmlResult = await getXmlData(pathResult);
+      expect(xmlResult).toEqual(expectData);
       done();
     })
     .catch(done.fail);

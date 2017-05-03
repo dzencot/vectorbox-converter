@@ -1,0 +1,19 @@
+{
+  "LivePlayList": {
+    "TimeColumn": "A",
+    "NameColumn": "B",
+    "DurationColumn": "C",
+    "ColorRegRec": "00FF00",
+    "Offset": "00:00:05:02"
+  },
+  "RegionalBlocks": {
+    "NameSheet": "Лист1",
+    "NumberBlockColumn": "E",
+    "NumberRolickColumn": "A",
+    "IdRolickColumn": "B",
+    "NameRolickColumn": "C",
+    "DurationRolickColumn": "D",
+    "ValueNotInclude": "Нет размещений",
+    "PathFilesBXX": "./__tests__/__fixtures__"
+  }
+}
