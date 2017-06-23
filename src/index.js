@@ -65,3 +65,4 @@ export default async (filePathLive, filePathBlocks, pathResult = './output.plx',
   const xmlResult = getXmlResult(result);
   return fs.writeFile(pathResult, `\ufeff<?xml version="1.0" encoding="UTF-16"?>\n${xmlResult}`, { encoding: 'utf16le' });
 };
+
